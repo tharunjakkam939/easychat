@@ -16,8 +16,6 @@ import os, shutil, uuid, json
 
 import pdfplumber
 from docx import Document as DocxDocument
-from sentence_transformers import SentenceTransformer
-import chromadb
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
 from duckduckgo_search import DDGS
@@ -456,9 +454,9 @@ async def upload_document(
     print(f"Created {len(chunks)} chunks")
     if not embedding_model:
         raise HTTPException(
-        status_code=503,
-        detail="Document processing temporarily disabled on deployment server"
-    )
+            status_code=503,
+            detail="Document processing temporarily disabled on deployment server"
+        )
 
     embeddings = embedding_model.encode(chunks).tolist()
 
