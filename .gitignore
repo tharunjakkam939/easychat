@@ -1,0 +1,24 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+backend/.env
+
+# ChromaDB
+chroma_db/
+backend/chroma_db/
+
+# Temporary files
+temp_*.pdf
+backend/temp_*.pdf
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db

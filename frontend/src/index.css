@@ -1,0 +1,18 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.ai-bubble p { margin-bottom: 8px; }
+.ai-bubble p:last-child { margin-bottom: 0; }
+.ai-bubble strong { font-weight: 600; color: #fff; }
+.ai-bubble ul, .ai-bubble ol { padding-left: 20px; margin: 8px 0; }
+.ai-bubble li { margin-bottom: 4px; }
+.ai-bubble h1, .ai-bubble h2, .ai-bubble h3 {
+  font-weight: 600; margin: 10px 0 6px; color: #fff;
+}
+.ai-bubble code {
+  background: #2a2a3e; padding: 2px 6px;
+  border-radius: 4px; font-size: 13px;
+}
+.ai-bubble pre {
+  background: #2a2a3e; padding: 12px;
+  border-radius: 8px; overflow-x: auto; margin: 8px 0;
+}
