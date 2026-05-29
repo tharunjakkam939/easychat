@@ -36,6 +36,7 @@ chroma_client = None
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 
 app = FastAPI()
+Base.metadata.create_all(bind=engine)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "https://*.vercel.app", "*"],
