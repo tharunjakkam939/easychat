@@ -34,8 +34,8 @@ except:
 Base.metadata.create_all(bind=engine)
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
+embedding_model = None
+chroma_client = None
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 
 app = FastAPI()
@@ -310,7 +310,7 @@ async def chat(req: ChatRequest, db: Session = Depends(get_db), current_user: Us
 
     # RAG — strictly limit tokens
     context = ""
-    if conv_docs:
+    if conv_docs and embedding_model and chroma_client:
         try:
             col_name = get_collection_name(conv.id)
             collection = chroma_client.get_collection(col_name)
@@ -454,6 +454,12 @@ async def upload_document(
 
     chunks = chunk_text(text)
     print(f"Created {len(chunks)} chunks")
+    if not embedding_model:
+        raise HTTPException(
+        status_code=503,
+        detail="Document processing temporarily disabled on deployment server"
+    )
+
     embeddings = embedding_model.encode(chunks).tolist()
 
     col_name = get_collection_name(conv.id)
