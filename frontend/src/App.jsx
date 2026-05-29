@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import ReactMarkdown from 'react-markdown'
-
-const API = "http://localhost:8000"
+const API = "https://easychat-nuze.onrender.com"
 const GOOGLE_CLIENT_ID = "300153847360-psaml0jkprcp3q17mfb3hg7dinmefdek.apps.googleusercontent.com"
 
 export default function App() {
