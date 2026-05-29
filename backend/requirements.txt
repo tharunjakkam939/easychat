@@ -10,8 +10,7 @@ python-multipart
 google-auth
 requests
 
-chromadb
-sentence-transformers
+
 
 pdfplumber
 python-docx
