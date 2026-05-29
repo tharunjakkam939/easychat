@@ -29,7 +29,6 @@ try:
 except:
     pass
 
-Base.metadata.create_all(bind=engine)
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 embedding_model = None
